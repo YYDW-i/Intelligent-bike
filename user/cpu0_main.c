@@ -88,12 +88,12 @@ uint32 data_length = 0;
     uint32 motor_key_time = 0;
 
 
-    uint16_t data[128];
+    /*uint16_t data[128];
     int16_t data_index = 0;
         for( ; 64 > data_index; data_index ++)
             data[data_index] = data_index;
         for(data_index = 64; 128 > data_index; data_index ++)
-            data[data_index] = 128 - data_index;
+            data[data_index] = 128 - data_index;*/
 
         ips200_set_dir(IPS200_PORTAIT);
         ips200_set_color(RGB565_RED, RGB565_BLACK);
@@ -187,7 +187,8 @@ uint32 data_length = 0;
         //speed_value = motor_pid_control(motor_pid,motor_value.receive_left_speed_data);
         //small_driver_set_duty(speed_value,0);
         //small_driver_set_duty(1000,0);
-        //temp=gnss_main_round(0,0);
+
+        temp = gnss_data_parse();
 
         //roll_output
         ips200_show_string(0,16*8,"ROLL:");
@@ -227,6 +228,13 @@ uint32 data_length = 0;
             case 4: ips200_show_string(125,0,"TASK4");
                 break;
         }
+
+        //gnss_out
+        ips200_show_string(0,16*10,"latitude:");
+        ips200_show_float(75,16*10,gnss.latitude,4,6);
+
+        ips200_show_string(0,16*11,"longitude");
+        ips200_show_float(75,16*11,gnss.longitude,4,6);
 
 
        /* data_length = wifi_spi_read_buffer(wifi_spi_get_data_buffer, sizeof(wifi_spi_get_data_buffer));

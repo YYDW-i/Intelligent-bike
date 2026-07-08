@@ -2,7 +2,8 @@
 #define AVOID_ANGLE  15
 
 double dir=0;  //take as the duo jiao
-double third_subject_angle=45.0;//playground bike to end and north direction shunshizhen angle
+double third_subject_angle = 45.0;   //小车到终点的方向和正北方向的顺时针夹角
+
 double change_gnss_to_duo(double desired_heading){
     // 1. 閿熸枻鎷烽敓濮愯埅閿熸枻鎷风澘顒婃嫹閿熸彮浼欐嫹閿熸枻鎷烽敓锟� [-180,180]
     double diff = desired_heading - gnss.direction;
@@ -185,11 +186,11 @@ void surround_left_second(double object_latitude,double object_longitude){
         cur_direction=get_two_points_azimuth(gnss.latitude,gnss.longitude,object_latitude,object_longitude);
     }
     
+
 }
 
-//subject third turn to zhuitong
-
-double third_subject_getkangle(double s_latitude,double s_longitude){
+double third_subject_getkangle(double s_latitude,double s_longitude)
+{
     double fang=get_two_points_azimuth(gnss.latitude,gnss.longitude,s_latitude,s_longitude);
     if(fang-third_subject_angle>0){
         return fang-third_subject_angle-180;
@@ -197,7 +198,4 @@ double third_subject_getkangle(double s_latitude,double s_longitude){
         return fang-third_subject_angle+180;
     }
 }
-
-
-
 

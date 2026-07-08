@@ -37,11 +37,12 @@ float init_distance=0;
 float WHEEL_CIRCUMFERENCE_M=0.24; //circle length of the wheel
 float change_yaw = 0.0f;
 
+double s_latitude = 0;    //采集的第一个锥桶的坐标
+double s_longitude = 0;
+
 void Task_doing()  //定时器中断函数，任务在其中执行，2ms
 {
-    //small_driver_set_duty(1000,0);
-
-    //Servo_control(45);
+    //gnss_main_round(0,0);
     miniseconds+=2;
     distance_calculate(miniseconds,0);
     // 电机控制模块
@@ -110,6 +111,7 @@ void Task_doing()  //定时器中断函数，任务在其中执行，2ms
             }   else if(turn1_success == 1)
             {
                 detect_line_first_turn2(last_distance);
+
             }
     }
 }
@@ -198,8 +200,16 @@ void detect_line_first_turn2(float lastdistence){
 
     if(init_distance-lastdistence>first_turn_circle && turn_flag_1 == 1)
     {
+        double kk = 0.1;
         change_flag = 0;
-        turn_angle = 180;
+        if(third_subject_getkangle(s_latitude,s_longitude) > 90)
+        {
+            turn_angle = 180 + kk*(third_subject_getkangle(s_latitude,s_longitude) - 180);
+        }else if(third_subject_getkangle(s_latitude,s_longitude) < 90)
+        {
+            turn_angle = 180 + kk*(third_subject_getkangle(s_latitude,s_longitude) - 180);
+        }
+
         turn1_success=2;
     }
 }
@@ -528,6 +538,8 @@ float speed_2(void)
     speed = -100 - 8 * angle;
     return speed;
 }
+
+
 
 
 
