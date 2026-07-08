@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc23012a --dep-file=code/gnss.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\code -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Configurations -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_components -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_driver -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o code/gnss.src ../code/gnss.c"
+	.compiler_invocation	"ctc -f cc3432a --dep-file=code/gnss.d -c99 --fp-model=3cflnrSTz -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x --fp-model=+float -D__CPU__=tc26xb -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\code -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Configurations -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_components -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_driver -IE:\\\\BaiduNetdiskDownload\\\\Seekfree_TC264_Opensource_Library\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2012 -o code/gnss.src ../code/gnss.c"
 	.compiler_name		"ctc"
 	;source	'../code/gnss.c'
 
@@ -255,7 +255,7 @@ gnss_main_round:	.type	func
 	lea	a4,[a4]@los(.1.str)
 	movh.a	a5,#@his(.2.str)
 	lea	a5,[a5]@los(.2.str)
-	mov	d5,#91
+	mov	d5,#92
 	call	debug_log_handler
 .L295:
 	movh	d2,#49024
@@ -267,7 +267,7 @@ gnss_main_round:	.type	func
 	lea	a4,[a4]@los(.3.str)
 	movh.a	a5,#@his(.2.str)
 	lea	a5,[a5]@los(.2.str)
-	mov	d5,#98
+	mov	d5,#99
 	call	debug_log_handler
 .L297:
 	movh	d2,#49024
@@ -435,7 +435,7 @@ surround_left:	.type	func
 	lea	a4,[a4]@los(.3.str)
 	movh.a	a5,#@his(.2.str)
 	lea	a5,[a5]@los(.2.str)
-	mov	d5,#132
+	mov	d5,#133
 	call	debug_log_handler
 .L38:
 	movh.a	a15,#@his(gnss)
@@ -586,7 +586,7 @@ surround_right:	.type	func
 	lea	a4,[a4]@los(.3.str)
 	movh.a	a5,#@his(.2.str)
 	lea	a5,[a5]@los(.2.str)
-	mov	d5,#157
+	mov	d5,#158
 	call	debug_log_handler
 .L43:
 	movh.a	a15,#@his(gnss)
@@ -728,7 +728,7 @@ surround_left_second:	.type	func
 	lea	a4,[a4]@los(.3.str)
 	movh.a	a5,#@his(.2.str)
 	lea	a5,[a5]@los(.2.str)
-	mov	d5,#183
+	mov	d5,#184
 	call	debug_log_handler
 .L50:
 	movh.a	a15,#@his(gnss)
@@ -20356,22 +20356,22 @@ third_subject_angle:	.type	object
 	.byte	2
 	.word	.L68
 	.byte	3
-	.byte	'change_gnss_to_duo',0,1,6,8
+	.byte	'change_gnss_to_duo',0,1,7,8
 	.word	.L111
 	.byte	1,1,1
 	.word	.L55,.L112,.L54
 	.byte	4
-	.byte	'desired_heading',0,1,6,34
+	.byte	'desired_heading',0,1,7,34
 	.word	.L111,.L113
 	.byte	5
 	.word	.L55,.L112
 	.byte	6
-	.byte	'diff',0,1,8,12
+	.byte	'diff',0,1,9,12
 	.word	.L111,.L114
 	.byte	5
 	.word	.L115,.L112
 	.byte	6
-	.byte	'servo_angle',0,1,13,12
+	.byte	'servo_angle',0,1,14,12
 	.word	.L111,.L116
 	.byte	0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('change_gnss_to_duo')
@@ -20393,7 +20393,7 @@ third_subject_angle:	.type	object
 .L235:
 	.byte	5,37,7,0,5,2
 	.word	.L55
-	.byte	3,7,1,5,41,9
+	.byte	3,8,1,5,41,9
 	.half	.L236-.L55
 	.byte	1,5,35,9
 	.half	.L237-.L236
@@ -20459,36 +20459,36 @@ third_subject_angle:	.type	object
 	.byte	2
 	.word	.L68
 	.byte	3
-	.byte	'turn_to',0,1,29,8
+	.byte	'turn_to',0,1,30,8
 	.word	.L111
 	.byte	1,1,1
 	.word	.L57,.L117,.L56
 	.byte	4
-	.byte	'object_latitude',0,1,29,23
+	.byte	'object_latitude',0,1,30,23
 	.word	.L111,.L118
 	.byte	4
-	.byte	'object_longitude',0,1,29,46
+	.byte	'object_longitude',0,1,30,46
 	.word	.L111,.L119
 	.byte	5
 	.word	.L57,.L117
 	.byte	6
-	.byte	'dist',0,1,30,12
+	.byte	'dist',0,1,31,12
 	.word	.L111,.L120
 	.byte	5
 	.word	.L9,.L117
 	.byte	6
-	.byte	'bearing',0,1,34,12
+	.byte	'bearing',0,1,35,12
 	.word	.L111,.L121
 	.byte	6
-	.byte	'car_heading',0,1,36,12
+	.byte	'car_heading',0,1,37,12
 	.word	.L111,.L122
 	.byte	6
-	.byte	'angle_diff',0,1,38,12
+	.byte	'angle_diff',0,1,39,12
 	.word	.L111,.L123
 	.byte	5
 	.word	.L124,.L117
 	.byte	6
-	.byte	'target_heading',0,1,43,12
+	.byte	'target_heading',0,1,44,12
 	.word	.L111,.L125
 	.byte	0,0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('turn_to')
@@ -20510,7 +20510,7 @@ third_subject_angle:	.type	object
 .L252:
 	.byte	5,8,7,0,5,2
 	.word	.L57
-	.byte	3,28,1,5,51,9
+	.byte	3,29,1,5,51,9
 	.half	.L253-.L57
 	.byte	3,1,1,5,55,9
 	.half	.L254-.L253
@@ -20638,22 +20638,22 @@ third_subject_angle:	.type	object
 	.byte	2
 	.word	.L68
 	.byte	3
-	.byte	'gnss_main_round',0,1,72,8
+	.byte	'gnss_main_round',0,1,73,8
 	.word	.L111
 	.byte	1,1,1
 	.word	.L59,.L126,.L58
 	.byte	4
-	.byte	'object_latitude',0,1,72,31
+	.byte	'object_latitude',0,1,73,31
 	.word	.L111,.L127
 	.byte	4
-	.byte	'object_longitude',0,1,72,54
+	.byte	'object_longitude',0,1,73,54
 	.word	.L111,.L128
 	.byte	5
 	.word	.L59,.L126
 	.byte	5
 	.word	.L129,.L25
 	.byte	6
-	.byte	'turn',0,1,84,24
+	.byte	'turn',0,1,85,24
 	.word	.L111,.L130
 	.byte	0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('gnss_main_round')
@@ -20675,7 +20675,7 @@ third_subject_angle:	.type	object
 .L287:
 	.byte	5,8,7,0,5,2
 	.word	.L59
-	.byte	3,199,0,1,5,9,9
+	.byte	3,200,0,1,5,9,9
 	.half	.L288-.L59
 	.byte	3,3,1,5,5,9
 	.half	.L289-.L288
@@ -20735,36 +20735,36 @@ third_subject_angle:	.type	object
 	.byte	2
 	.word	.L68
 	.byte	3
-	.byte	'surround_left',0,1,109,6,1,1,1
+	.byte	'surround_left',0,1,110,6,1,1,1
 	.word	.L61,.L131,.L60
 	.byte	4
-	.byte	'object_latitude',0,1,109,27
+	.byte	'object_latitude',0,1,110,27
 	.word	.L111,.L132
 	.byte	4
-	.byte	'object_longitude',0,1,109,50
+	.byte	'object_longitude',0,1,110,50
 	.word	.L111,.L133
 	.byte	5
 	.word	.L61,.L131
 	.byte	6
-	.byte	'k',0,1,110,12
+	.byte	'k',0,1,111,12
 	.word	.L111,.L134
 	.byte	6
-	.byte	'direction',0,1,111,12
+	.byte	'direction',0,1,112,12
 	.word	.L111,.L135
 	.byte	5
 	.word	.L136,.L131
 	.byte	6
-	.byte	'cur_direction',0,1,119,12
+	.byte	'cur_direction',0,1,120,12
 	.word	.L111,.L137
 	.byte	5
 	.word	.L34,.L32
 	.byte	6
-	.byte	'distence',0,1,122,16
+	.byte	'distence',0,1,123,16
 	.word	.L111,.L138
 	.byte	5
 	.word	.L36,.L32
 	.byte	6
-	.byte	'flag',0,1,130,1,15
+	.byte	'flag',0,1,131,1,15
 	.word	.L139,.L140
 	.byte	0,0,0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('surround_left')
@@ -20786,7 +20786,7 @@ third_subject_angle:	.type	object
 .L303:
 	.byte	5,6,7,0,5,2
 	.word	.L61
-	.byte	3,236,0,1,5,46,9
+	.byte	3,237,0,1,5,46,9
 	.half	.L178-.L61
 	.byte	3,1,1,5,13,9
 	.half	.L179-.L178
@@ -20924,33 +20924,33 @@ third_subject_angle:	.type	object
 	.byte	2
 	.word	.L68
 	.byte	3
-	.byte	'surround_right',0,1,140,1,6,1,1,1
+	.byte	'surround_right',0,1,141,1,6,1,1,1
 	.word	.L63,.L141,.L62
 	.byte	4
-	.byte	'object_latitude',0,1,140,1,28
+	.byte	'object_latitude',0,1,141,1,28
 	.word	.L111,.L142
 	.byte	4
-	.byte	'object_longitude',0,1,140,1,51
+	.byte	'object_longitude',0,1,141,1,51
 	.word	.L111,.L143
 	.byte	5
 	.word	.L63,.L141
 	.byte	5
 	.word	.L144,.L141
 	.byte	6
-	.byte	'cur_direction',0,1,142,1,12
+	.byte	'cur_direction',0,1,143,1,12
 	.word	.L111,.L145
 	.byte	6
-	.byte	'direction',0,1,143,1,12
+	.byte	'direction',0,1,144,1,12
 	.word	.L111,.L146
 	.byte	5
 	.word	.L39,.L147
 	.byte	6
-	.byte	'distence',0,1,147,1,16
+	.byte	'distence',0,1,148,1,16
 	.word	.L111,.L148
 	.byte	5
 	.word	.L41,.L147
 	.byte	6
-	.byte	'flag',0,1,155,1,15
+	.byte	'flag',0,1,156,1,15
 	.word	.L139,.L149
 	.byte	0,0,0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('surround_right')
@@ -20972,7 +20972,7 @@ third_subject_angle:	.type	object
 .L341:
 	.byte	5,6,7,0,5,2
 	.word	.L63
-	.byte	3,139,1,1,5,20,9
+	.byte	3,140,1,1,5,20,9
 	.half	.L342-.L63
 	.byte	3,1,1,5,49,9
 	.half	.L144-.L342
@@ -21074,33 +21074,33 @@ third_subject_angle:	.type	object
 	.byte	2
 	.word	.L68
 	.byte	3
-	.byte	'surround_left_second',0,1,165,1,6,1,1,1
+	.byte	'surround_left_second',0,1,166,1,6,1,1,1
 	.word	.L65,.L150,.L64
 	.byte	4
-	.byte	'object_latitude',0,1,165,1,34
+	.byte	'object_latitude',0,1,166,1,34
 	.word	.L111,.L151
 	.byte	4
-	.byte	'object_longitude',0,1,165,1,57
+	.byte	'object_longitude',0,1,166,1,57
 	.word	.L111,.L152
 	.byte	5
 	.word	.L65,.L150
 	.byte	5
 	.word	.L153,.L150
 	.byte	6
-	.byte	'cur_direction',0,1,167,1,12
+	.byte	'cur_direction',0,1,168,1,12
 	.word	.L111,.L154
 	.byte	6
-	.byte	'direction',0,1,168,1,12
+	.byte	'direction',0,1,169,1,12
 	.word	.L111,.L155
 	.byte	5
 	.word	.L46,.L44
 	.byte	6
-	.byte	'distence',0,1,172,1,16
+	.byte	'distence',0,1,173,1,16
 	.word	.L111,.L156
 	.byte	5
 	.word	.L48,.L44
 	.byte	6
-	.byte	'flag',0,1,181,1,15
+	.byte	'flag',0,1,182,1,15
 	.word	.L139,.L157
 	.byte	0,0,0,0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('surround_left_second')
@@ -21122,7 +21122,7 @@ third_subject_angle:	.type	object
 .L371:
 	.byte	5,6,7,0,5,2
 	.word	.L65
-	.byte	3,164,1,1,5,20,9
+	.byte	3,165,1,1,5,20,9
 	.half	.L214-.L65
 	.byte	3,1,1,5,49,9
 	.half	.L153-.L214
@@ -21214,7 +21214,7 @@ third_subject_angle:	.type	object
 	.half	.L401-.L400
 	.byte	1,5,1,7,9
 	.half	.L402-.L401
-	.byte	3,18,1,7,9
+	.byte	3,19,1,7,9
 	.half	.L101-.L402
 	.byte	0,1,1
 .L369:
@@ -21249,7 +21249,7 @@ third_subject_angle:	.type	object
 	.byte	5
 	.word	.L67,.L158
 	.byte	6
-	.byte	'fang',0,1,193,1,12
+	.byte	'fang',0,1,194,1,12
 	.word	.L111,.L161
 	.byte	0,0,0
 	.sdecl	'.debug_abbrev',debug,cluster('third_subject_getkangle')
@@ -21273,7 +21273,7 @@ third_subject_angle:	.type	object
 	.word	.L67
 	.byte	3,191,1,1,5,40,9
 	.half	.L407-.L67
-	.byte	3,1,1,5,44,9
+	.byte	3,2,1,5,44,9
 	.half	.L408-.L407
 	.byte	1,5,54,9
 	.half	.L223-.L408

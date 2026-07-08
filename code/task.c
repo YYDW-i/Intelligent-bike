@@ -405,7 +405,7 @@ void task2_servo(void)
               set_turn_out = turn_circle_control(&servo2_param,eulerangle.yaw);
               }else if(param.task2_turn_flag == 1)
               {
-                  set_turn_out = 0.5;
+                  set_turn_out = 1.0;//0.5;
               }
 
            }
