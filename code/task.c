@@ -27,7 +27,7 @@ float first_line_distence=15.0;// the length is meter
 float first_begin_latitude=-1;
 float first_begin_longitude=-1;
 int turn1_success=0;
-float first_turn_circle = 2;//3;//2.462; //the half length of the circle meters
+float first_turn_circle = 6.5;//3;//2.462; //the half length of the circle meters
 float turn_angle=0.0;
 float last_distance = 0;
 int change_flag = 0;
@@ -112,7 +112,7 @@ void Task_doing()  //定时器中断函数，任务在其中执行，2ms
                 detect_line_first_turn1();
             }   else if(turn1_success == 1)
             {
-                detect_line_first_turn2(last_distance);
+                detect_line_first_turn2_3(last_distance);
 
             }
     }
@@ -129,7 +129,7 @@ void Param_init(void)
     param.servo_turn_count = 0;
     param.servo_turn_add_count = 0;
     param.task_flag = 0;
-    param.task = 0;
+    param.task = 3;
     param.task2_turn_flag = 0;
 }
 
@@ -182,7 +182,7 @@ void detect_line_first_turn1(void){
         distence_gnss=get_two_points_distance(gnss.latitude,gnss.longitude,first_begin_latitude,first_begin_longitude);
     }
     float distence_guandao=init_distance;
-    if(distence_guandao>first_line_distence){
+    if(distence_guandao > first_line_distence){
         if(distence_gnss == -1||distence_gnss>first_line_distence){
             change_flag = 1;
             turn1_success = 1;
@@ -193,6 +193,23 @@ void detect_line_first_turn1(void){
 
 //the first subject 's second turn
 void detect_line_first_turn2(float lastdistence){
+
+    int turn_flag_1 = 0;
+    if((eulerangle.yaw > 160 && eulerangle.yaw <= 180) || (eulerangle.yaw < -160 && eulerangle.yaw > -180))
+    {
+        turn_flag_1 = 1;
+    }
+
+    if(init_distance-lastdistence > first_turn_circle && turn_flag_1 == 1)
+    {
+        turn_angle = 180;
+        change_flag = 0;
+        turn1_success=2;
+    }
+}
+
+
+void detect_line_first_turn2_3(float lastdistence){
 
     int turn_flag_1 = 0;
     if((eulerangle.yaw > 160 && eulerangle.yaw <= 180) || (eulerangle.yaw < -160 && eulerangle.yaw > -180))
@@ -339,7 +356,7 @@ void task1_servo(void)
                    set_turn_out = turn_circle_control(&servo_param,eulerangle.yaw);
                }else if(change_flag == 1)
                {
-                   set_turn_out = 2.8;//3.5;
+                   set_turn_out = 6.5;//3.5;
                }
            }
 

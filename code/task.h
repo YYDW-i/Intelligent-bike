@@ -52,6 +52,7 @@ void Param_init(void);
 float distance_calculate(uint32_t miniseconds, uint8_t reset);
 void detect_line_first_turn1(void);
 void detect_line_first_turn2(float lastdistence);
+void detect_line_first_turn2_3(float lastdistence);
 void task_2_route_set(void);
 void task1_servo(void);
 void task2_servo(void);
