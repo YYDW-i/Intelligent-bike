@@ -209,7 +209,7 @@ IFX_INTERRUPT(uart2_tx_isr, 0, UART2_TX_INT_PRIO)
 IFX_INTERRUPT(uart2_rx_isr, 0, UART2_RX_INT_PRIO)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
-    uart_control_callback();// 无线模块统一回调函数
+    uart_control_callback();// 电机控制回调
 
 
 

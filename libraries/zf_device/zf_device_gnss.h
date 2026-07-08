@@ -51,9 +51,9 @@
 //--------------------------------------------------------------------------------------------------
 //引脚配置
 //--------------------------------------------------------------------------------------------------
-#define GNSS_UART           (UART_1)//(UART_3)
-#define GNSS_RX             (UART1_TX_P02_2)//(UART3_TX_P15_6)                                    // GPS RX引脚连接到单片机此
-#define GNSS_TX             (UART1_RX_P02_3)//(UART3_RX_P15_7)                                    // GPS TX串口引脚
+#define GNSS_UART           (UART_3)
+#define GNSS_RX             (UART3_TX_P15_6)                                    // GPS RX引脚连接到单片机此
+#define GNSS_TX             (UART3_RX_P15_7)                                    // GPS TX串口引脚
 
 #define ANGLE_TO_RAD(x)     ( (x) * PI / 180.0 )                                // 角度转换为弧度
 #define RAD_TO_ANGLE(x)     ( (x) * 180.0 / PI )                                // 弧度转换为角度
