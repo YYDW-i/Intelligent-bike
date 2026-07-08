@@ -198,7 +198,7 @@ uint32 data_length = 0;
         ips200_show_float(35,16*9,eulerangle.yaw,4,6);
         //clock_output
         ips200_show_string(0,16*5,"SYSTEM_CLOCK:");
-        ips200_show_uint(110,16*5,miniseconds,10);
+        ips200_show_float(110,16*5,time,4,6);
         //distance_output
         ips200_show_string(0,16*6,"DISTANCE:");
         ips200_show_float(75,16*6,init_distance,4,5);

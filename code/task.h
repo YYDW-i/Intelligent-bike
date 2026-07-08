@@ -39,6 +39,7 @@ extern float set_angle_out;
 extern float set_turn_out;
 extern float set_turn_true_out;
 extern uint32 miniseconds;
+extern float time;
 extern float init_distance;
 extern float WHEEL_CIRCUMFERENCE_M; //circle length of the wheel
 extern float gyro_rate;

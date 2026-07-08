@@ -33,6 +33,7 @@ float last_distance = 0;
 int change_flag = 0;
 
 uint32 miniseconds=0;
+float time = 0;
 float init_distance=0;
 float WHEEL_CIRCUMFERENCE_M=0.24; //circle length of the wheel
 float change_yaw = 0.0f;
@@ -43,7 +44,8 @@ double s_longitude = 0;
 void Task_doing()  //定时器中断函数，任务在其中执行，2ms
 {
     //gnss_main_round(0,0);
-    miniseconds+=2;
+    miniseconds += 2;
+    time += 0.002;
     distance_calculate(miniseconds,0);
     // 电机控制模块
     if(param.speed_flag)
@@ -234,20 +236,20 @@ void task_2_route_set(void)
         turn_angle = -60;
         task2 ++;
     }
-    if(task2 == 3 && init_distance > (0.2 + 1.80 + 2.50))
+    if(task2 == 3 && init_distance > (0.2 + 1.80 + 2.20))
     {
         buzzer_flag = 1;
         param.task2_turn_flag = 1;
         task2 ++;
     }
-    if(task2 == 4 && init_distance > (0.2 + 1.80 + 2.50 + 3))
+    if(task2 == 4 && init_distance > (0.2 + 1.80 + 2.20 + 3))
     {
         buzzer_flag = 1;
         param.task2_turn_flag = 0;
         turn_angle = -120;
         task2 ++;
     }
-    if(task2 == 5 && init_distance > (0.2 + 1.80 + 2.50 + 3 + 3))
+    if(task2 == 5 && init_distance > (0.2 + 1.80 + 2.20 + 3 + 3))
     {
         buzzer_flag = 1;
         turn_angle = 135;
@@ -405,7 +407,7 @@ void task2_servo(void)
               set_turn_out = turn_circle_control(&servo2_param,eulerangle.yaw);
               }else if(param.task2_turn_flag == 1)
               {
-                  set_turn_out = 2.5;//0.5;
+                  set_turn_out = 3.5;//0.5;
               }
 
            }
