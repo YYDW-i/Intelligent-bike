@@ -86,7 +86,7 @@ void Task_doing()  //定时器中断函数，任务在其中执行，2ms
         task2_servo();
         if(param.speed_flag)
         {
-         motor_pid.set_speed = -150;//-100;//-150;
+         motor_pid.set_speed = speed_2();//-150;//-100;//-150;
         }else{
             motor_pid.set_speed = 0;
         }
@@ -225,7 +225,7 @@ void task_2_route_set(void)
     if(task2 == 1 && init_distance > 0.2)
     {
         buzzer_flag = 1;
-        turn_angle = 25;
+        turn_angle = 30;
         task2 ++;
     }
     if(task2 == 2 && init_distance > (0.2 + 1.80))
@@ -405,7 +405,7 @@ void task2_servo(void)
               set_turn_out = turn_circle_control(&servo2_param,eulerangle.yaw);
               }else if(param.task2_turn_flag == 1)
               {
-                  set_turn_out = 1;//0.5;
+                  set_turn_out = 2.5;//0.5;
               }
 
            }
@@ -535,7 +535,7 @@ float speed_2(void)
         angle = - eulerangle.roll;
     }
 
-    speed = -100 - 8 * angle;
+    speed = -150 - 3 * angle;
     return speed;
 }
 
