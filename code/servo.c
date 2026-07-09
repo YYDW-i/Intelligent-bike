@@ -160,10 +160,10 @@ float servo_gyro_filter(float raw, float *filtered, float alpha)
     return *filtered;
 }
 
-void servo_pid_change(void)
+void servo_pid_change(Servo_param *param)
 {
-    servo_param.gyro_kp = 0.2 - (-400-encoder_data)*0.0002;
-    servo_param.gyro_kp = 3.5 - (-400-encoder_data)*0.002;
-    servo_param.angle_kd = 1 + (-400-encoder_data)*0.002;
+    param->gyro_kp = 0.17 - (-400-encoder_data)*0.0001;
+    //param->angle_kp = 3.5 - (-400-encoder_data)*0.001;
+    //param->angle_kd = 3.2 + (-400-encoder_data)*0.001;
 }
 

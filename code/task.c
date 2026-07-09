@@ -51,11 +51,11 @@ void Task_doing()  //定时器中断函数，任务在其中执行，2ms
     if(param.speed_flag)
     {
         set_newspeed = (int16)motor_pid_control(&motor_pid,(float)encoder_data);
-            if(set_newspeed > 3000)
+            if(set_newspeed > 7000)
                 {
-                    set_newspeed = 3000;
-                }else if(set_newspeed < -3000){
-                    set_newspeed = -3000;
+                    set_newspeed = 7000;
+                }else if(set_newspeed < -7000){
+                    set_newspeed = -7000;
                 }
             driver_speed_set(set_newspeed);
     }else{
@@ -104,17 +104,17 @@ void Task_doing()  //定时器中断函数，任务在其中执行，2ms
             {
                 motor_pid.set_speed = -400;
             }
-
+            servo_pid_change(&servo3_param);
             task3_servo();
 
-            if(turn1_success == 0)
+            /*if(turn1_success == 0)
             {
                 detect_line_first_turn1();
             }   else if(turn1_success == 1)
             {
                 detect_line_first_turn2_3(last_distance);
 
-            }
+            }*/
     }
 }
 
@@ -217,7 +217,7 @@ void detect_line_first_turn2_3(float lastdistence){
         turn_flag_1 = 1;
     }
 
-    if(init_distance-lastdistence>first_turn_circle && turn_flag_1 == 1)
+    if(init_distance-lastdistence > first_turn_circle && turn_flag_1 == 1)
     {
         double kk = 0.1;
         change_flag = 0;
@@ -515,7 +515,7 @@ void task3_servo(void)
                    set_turn_out = turn_circle_control(&servo3_param,eulerangle.yaw);
                }else if(change_flag == 1)
                {
-                   set_turn_out = 1.5;//3.5;
+                   set_turn_out = 6.5;//3.5;
                }
            }
 

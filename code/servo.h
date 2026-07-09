@@ -43,6 +43,6 @@ float angle_circle_conetrol(Servo_param *PID,float now_roll);
 void servo_pid_init(void);
 float turn_circle_control(Servo_param *PID,float now_yaw);
 float servo_gyro_filter(float raw, float *filtered, float alpha);
-void servo_pid_change(void);
+void servo_pid_change(Servo_param *param);
 
 #endif /* CODE_SERVO_H_ */
