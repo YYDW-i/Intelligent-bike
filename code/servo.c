@@ -129,23 +129,23 @@ void servo_pid_init(void)         //初始化舵机pid参数
     servo2_param.set_turn = 0;
 
     //任务三参数
-    servo3_param.angle_kp = 3.5;//3;//7.5;//5;//-12;//-15;
+    servo3_param.angle_kp = 7;//3;//7.5;//5;//-12;//-15;
     servo3_param.angle_ki = 0.01;//-0.05;
-    servo3_param.angle_kd = 3.2;//1;//-0.4;//0;//1;
+    servo3_param.angle_kd = 1;//1;//-0.4;//0;//1;
     servo3_param.angle_integral = 0;
     servo3_param.angle_prev_error = 0;
     servo3_param.set_angle = 0;
 
-    servo3_param.gyro_kp = 0.17;//0.20;//-0.13;//-0.15;//0.15;
+    servo3_param.gyro_kp = 0.23;//0.20;//-0.13;//-0.15;//0.15;
     servo3_param.gyro_ki = 0;
     servo3_param.gyro_kd = 0;
     servo3_param.gyro_integral = 0;
     servo3_param.gyro_prev_error = 0;
     servo3_param.set_gyro = 0;
 
-    servo3_param.turn_kp = 0.32;//0.33;//0.45;//0.3;//1;//-2;
+    servo3_param.turn_kp = 0.12;//0.33;//0.45;//0.3;//1;//-2;
     servo3_param.turn_ki = 0;
-    servo3_param.turn_kd = 1.0;//0.7;//0.4;
+    servo3_param.turn_kd = 0.5;//0.7;//0.4;
     servo3_param.turn_integral = 0;
     servo3_param.turn_prev_error = 0;
     servo3_param.set_turn = 0;
@@ -162,7 +162,7 @@ float servo_gyro_filter(float raw, float *filtered, float alpha)
 
 void servo_pid_change(Servo_param *param)
 {
-    param->gyro_kp = 0.17 - (-400-encoder_data)*0.0001;
+    param->gyro_kp = 0.23 - (-250 - encoder_data)*0.0001;
     //param->angle_kp = 3.5 - (-400-encoder_data)*0.001;
     //param->angle_kd = 3.2 + (-400-encoder_data)*0.001;
 }

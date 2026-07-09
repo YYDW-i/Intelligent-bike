@@ -102,7 +102,7 @@ void Task_doing()  //定时器中断函数，任务在其中执行，2ms
     {
         if(param.speed_flag)
             {
-                motor_pid.set_speed = -400;
+                motor_pid.set_speed = -250;
             }
             servo_pid_change(&servo3_param);
             task3_servo();
