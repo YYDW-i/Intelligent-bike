@@ -34,25 +34,26 @@ float turn_angle=0.0;
 float last_distance = 0;
 int change_flag = 0;
 
+int gnssflag = 0;
 uint32 miniseconds=0;
 float time = 0;
 float init_distance=0;
 float WHEEL_CIRCUMFERENCE_M=0.24; //circle length of the wheel
 float change_yaw = 0.0f;
 
-double s_latitude = 0;    //�ɼ��ĵ�һ��׶Ͱ������
+double s_latitude = 0;    //锟缴硷拷锟侥碉拷一锟斤拷锥桶锟斤拷锟斤拷锟斤拷
 double s_longitude = 0;
 
-double grass_latitude = 0; //the latitude of the grass
-double grass_longitude = 0; //the longitude of the grass
+double grass_latitude = 39.72683; //the latitude of the grass
+double grass_longitude = 116.163574; //the longitude of the grass
 
-void Task_doing()  //��ʱ���жϺ���������������ִ�У�2ms
+void Task_doing()  //锟斤拷时锟斤拷锟叫断猴拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷执锟叫ｏ拷2ms
 {
     //gnss_main_round(0,0);
     miniseconds += 2;
     time += 0.002;
     distance_calculate(miniseconds,0);
-    // �������ģ��
+    // 锟斤拷锟斤拷锟斤拷锟侥ｏ拷锟�
     if(param.speed_flag)
     {
         set_newspeed = (int16)motor_pid_control(&motor_pid,(float)encoder_data);
@@ -67,7 +68,7 @@ void Task_doing()  //��ʱ���жϺ�������������
         driver_speed_set(0);
     }
 
-    //��Ŀһ����
+    //锟斤拷目一锟斤拷锟斤拷
     if(param.task == task_one)
     {
 
@@ -87,7 +88,7 @@ void Task_doing()  //��ʱ���жϺ�������������
     }
   }
 
-    //��Ŀ������
+    //锟斤拷目锟斤拷锟斤拷锟斤拷
     if(param.task == task_two)
     {
         task2_servo();
@@ -102,7 +103,7 @@ void Task_doing()  //��ʱ���жϺ�������������
         BUZZER_DO();
     }
 
-    //��Ŀ������
+    //锟斤拷目锟斤拷锟斤拷锟斤拷
     if(param.task == task_three)
     {
         if(param.speed_flag)
@@ -115,7 +116,14 @@ void Task_doing()  //��ʱ���жϺ�������������
             if(turn1_success == 0)
             {
                 detect_line_first_turn1();
-                turn_angle = 0 + 0.1 * third_grass_getkangle(grass_latitude,grass_longitude);
+                if((get_two_points_distance(gnss.latitude,gnss.longitude,grass_latitude,grass_longitude) > 1.3) && gnssflag == 0)
+                {
+                    turn_angle = 0 + 0 * third_grass_getkangle(grass_latitude,grass_longitude);
+                }else if(get_two_points_distance(gnss.latitude,gnss.longitude,grass_latitude,grass_longitude) < 1.3)
+                {
+                    turn_angle = 0;
+                    gnssflag = 1;
+                }
             }else if(turn1_success == 1)
             {
                 detect_line_first_turn2_3(last_distance);
@@ -168,18 +176,18 @@ float distance_calculate(uint32_t miniseconds, uint8_t reset)
 
     uint32_t delta_ms = miniseconds - last_time;
 
-    float delta_t = delta_ms / 1000.0f;   // ms ת s
+    float delta_t = delta_ms / 1000.0f;   // ms 转 s
 
-    // ���λ���
+    // 锟斤拷锟轿伙拷锟斤拷
     float average_speed = (last_speed + current_speed) / 2.0f;
 
-    // ת/�� �� �� �� �����ܳ� = ����
+    // 转/锟斤拷 锟斤拷 锟斤拷 锟斤拷 锟斤拷锟斤拷锟杰筹拷 = 锟斤拷锟斤拷
     init_distance += average_speed * delta_t * WHEEL_CIRCUMFERENCE_M;
 
     last_time = miniseconds;
     last_speed = current_speed;
 
-    return init_distance;   // ��λ��m
+    return init_distance;   // 锟斤拷位锟斤拷m
 }
 
 
@@ -226,7 +234,7 @@ void detect_line_first_turn2_3(float lastdistence){
 
     if(init_distance-lastdistence > first_turn_circle && turn_flag_1 == 1)
     {
-        double kk = 0.1;
+        double kk = 0;
         change_flag = 0;
         if(third_subject_getkangle(s_latitude,s_longitude) > 90)
         {
@@ -236,7 +244,7 @@ void detect_line_first_turn2_3(float lastdistence){
             turn_angle = 180 + kk*(third_subject_getkangle(s_latitude,s_longitude) + 180);
         }
     }
-    if((eulerangle.yaw > 170 || eulerangle.yaw < -170) && (third_subject_getkangle(s_latitude,s_longitude) > 170 ||third_subject_getkangle(s_latitude,s_longitude) < -170))
+    if((eulerangle.yaw > 170 || eulerangle.yaw < -170))
     {
         turn_angle = 180;
         turn1_success = 2;
@@ -293,27 +301,27 @@ void task_3_route_set(void)
         now_distance = init_distance;
         task3 ++;
     }
-    if(task3 == 1 && init_distance - now_distance > 3)
+    if(task3 == 1 && init_distance - now_distance > 1.7)
     {
-        turn_angle = -150;
+        turn_angle = -160;
         now_distance = init_distance;
         task3 ++;
     }
     if(task3 == 2 && init_distance - now_distance > 2)
     {
-        turn_angle = 150;
+        turn_angle = 160;
         now_distance = init_distance;
         task3 ++;
     }
     if(task3 == 3 && init_distance - now_distance > 2)
     {
-        turn_angle = -150;
+        turn_angle = -160;
         now_distance = init_distance;
         task3 ++;
     }
     if(task3 == 4 && init_distance - now_distance > 2)
     {
-        turn_angle = -150;
+        turn_angle = -160;
         now_distance = init_distance;
         task3 ++;
     }
@@ -321,21 +329,21 @@ void task_3_route_set(void)
 
 void task1_servo(void)
 {
-    //���ƽ�����
+    //锟斤拷锟狡斤拷锟斤拷锟斤拷
         if(param.servo_flag )
         {
             param.servo_angle_count++;
             param.servo_turn_count++;
             param.servo_turn_add_count++;
-            //���ٶȻ�����
+            //锟斤拷锟劫度伙拷锟斤拷锟斤拷
             if(imu_data.gyro_y > 230)
             {imu_data.gyro_y = 230;}
             else if(imu_data.gyro_y < -230)
             {
                 imu_data.gyro_y = -230;
             }
-           new_gyro = servo_gyro_filter(imu_data.gyro_y,&new_gyro,0.08);// ��ͨ�˲�
-           set_gyro_out = gyro_circle_conetrol(&servo_param,new_gyro);     //2msһ��
+           new_gyro = servo_gyro_filter(imu_data.gyro_y,&new_gyro,0.08);// 锟斤拷通锟剿诧拷
+           set_gyro_out = gyro_circle_conetrol(&servo_param,new_gyro);     //2ms一锟斤拷
            if(set_gyro_out>gyro_out_max)
            {
                set_gyro_out = gyro_out_max;
@@ -346,15 +354,15 @@ void task1_servo(void)
 
            Servo_control((double)set_gyro_out);
 
-           //�ǶȻ�����
-           if(param.servo_angle_count > 2)  //4ms����һ��
+           //锟角度伙拷锟斤拷锟斤拷
+           if(param.servo_angle_count > 2)  //4ms锟斤拷锟斤拷一锟斤拷
            {
                param.servo_angle_count = 0;
                set_angle_out = angle_circle_conetrol(&servo_param,eulerangle.roll);
                servo_param.set_gyro = set_angle_out;
            }
 
-           //λ�û�����
+           //位锟矫伙拷锟斤拷锟斤拷
 
            if(param.servo_turn_add_count > 4)
            {
@@ -380,11 +388,11 @@ void task1_servo(void)
 
            }
 
-           if(param.servo_turn_count > 15) //30msִ��һ��
+           if(param.servo_turn_count > 15) //30ms执锟斤拷一锟斤拷
            {
                param.servo_turn_count = 0;
 
-               /*//ƫ����ת��
+               /*//偏锟斤拷锟斤拷转锟斤拷
                if(eulerangle.yaw > 90 && eulerangle.yaw <= 180)
                {
                    change_yaw = eulerangle.yaw - 180;
@@ -411,15 +419,15 @@ void task1_servo(void)
 
 void task2_servo(void)
 {
-    //���ƽ�����
+    //锟斤拷锟狡斤拷锟斤拷锟斤拷
         if(param.servo_flag )
         {
             param.servo_angle_count++;
             param.servo_turn_count++;
             param.servo_turn_add_count++;
 
-           //�ǶȻ�����
-           if(param.servo_angle_count > 2)  //4ms����һ��
+           //锟角度伙拷锟斤拷锟斤拷
+           if(param.servo_angle_count > 2)  //4ms锟斤拷锟斤拷一锟斤拷
            {
                param.servo_angle_count = 0;
                set_angle_out = angle_circle_conetrol(&servo2_param,eulerangle.roll);
@@ -434,7 +442,7 @@ void task2_servo(void)
                Servo_control((double)set_angle_out);
            }
 
-           //λ�û�����
+           //位锟矫伙拷锟斤拷锟斤拷
 
            if(param.servo_turn_add_count > 5)
            {
@@ -460,7 +468,7 @@ void task2_servo(void)
 
            }
 
-           if(param.servo_turn_count > 20) //80msִ��һ��
+           if(param.servo_turn_count > 20) //80ms执锟斤拷一锟斤拷
            {
                param.servo_turn_count = 0;
               if(param.task2_turn_flag == 0)
@@ -480,21 +488,21 @@ void task2_servo(void)
 
 void task3_servo(void)
 {
-    //���ƽ�����
+    //锟斤拷锟狡斤拷锟斤拷锟斤拷
         if(param.servo_flag )
         {
             param.servo_angle_count++;
             param.servo_turn_count++;
             param.servo_turn_add_count++;
-            //���ٶȻ�����
+            //锟斤拷锟劫度伙拷锟斤拷锟斤拷
             if(imu_data.gyro_y > 230)
             {imu_data.gyro_y = 230;}
             else if(imu_data.gyro_y < -230)
             {
                 imu_data.gyro_y = -230;
             }
-           new_gyro = servo_gyro_filter(imu_data.gyro_y,&new_gyro,0.08);// ��ͨ�˲�
-           set_gyro_out = gyro_circle_conetrol(&servo3_param,new_gyro);     //2msһ��
+           new_gyro = servo_gyro_filter(imu_data.gyro_y,&new_gyro,0.08);// 锟斤拷通锟剿诧拷
+           set_gyro_out = gyro_circle_conetrol(&servo3_param,new_gyro);     //2ms一锟斤拷
            if(set_gyro_out>gyro_out_max)
            {
                set_gyro_out = gyro_out_max;
@@ -505,15 +513,15 @@ void task3_servo(void)
 
            Servo_control((double)set_gyro_out);
 
-           //�ǶȻ�����
-           if(param.servo_angle_count > 2)  //4ms����һ��
+           //锟角度伙拷锟斤拷锟斤拷
+           if(param.servo_angle_count > 2)  //4ms锟斤拷锟斤拷一锟斤拷
            {
                param.servo_angle_count = 0;
                set_angle_out = angle_circle_conetrol(&servo3_param,eulerangle.roll);
                servo3_param.set_gyro = set_angle_out;
            }
 
-           //λ�û�����
+           //位锟矫伙拷锟斤拷锟斤拷
 
            if(param.servo_turn_add_count > 4)
            {
@@ -539,7 +547,7 @@ void task3_servo(void)
 
            }
 
-           if(param.servo_turn_count > 15) //30msִ��һ��
+           if(param.servo_turn_count > 15) //30ms执锟斤拷一锟斤拷
            {
                param.servo_turn_count = 0;
 

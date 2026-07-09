@@ -230,11 +230,11 @@ uint32 data_length = 0;
         }
 
         //gnss_out
-        ips200_show_string(0,16*10,"latitude:");
-        ips200_show_float(75,16*10,gnss.latitude,4,6);
+        //ips200_show_string(0,16*10,"latitude:");
+        ips200_show_float(75,16*10,third_grass_getkangle(grass_latitude,grass_longitude),4,6);
 
-        ips200_show_string(0,16*11,"longitude");
-        ips200_show_float(75,16*11,gnss.longitude,4,6);
+        //ips200_show_string(0,16*11,"longitude");
+        ips200_show_float(75,16*11,get_two_points_azimuth(gnss.latitude,gnss.longitude,grass_latitude,grass_longitude),4,6);
 
 
        /* data_length = wifi_spi_read_buffer(wifi_spi_get_data_buffer, sizeof(wifi_spi_get_data_buffer));

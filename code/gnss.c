@@ -2,7 +2,7 @@
 #define AVOID_ANGLE  15
 
 double dir=0;  //take as the duo jiao
-double third_subject_angle = 45.0;   //小车到终点的方向和正北方向的顺时针夹角
+double third_subject_angle = 0;   //小车到终点的方向和正北方向的顺时针夹角
 
 double change_gnss_to_duo(double desired_heading){
     // 1. 閿熸枻鎷烽敓濮愯埅閿熸枻鎷风澘顒婃嫹閿熸彮浼欐嫹閿熸枻鎷烽敓锟� [-180,180]
@@ -202,10 +202,10 @@ double third_subject_getkangle(double s_latitude,double s_longitude)
 double third_grass_getkangle(double grass_latitude,double grass_longitude)
 {
     double fang=get_two_points_azimuth(gnss.latitude,gnss.longitude,grass_latitude,grass_longitude);
-    if(third_subject_angle-fang<0){
+    if(fang - third_subject_angle < 180){
         return third_subject_angle-fang;
     }else{
-        return fang-third_subject_angle;
+        return 360-(fang-third_subject_angle);
     }
 }
 
