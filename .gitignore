@@ -1,14 +1,27 @@
+# Visual Studio / VSCode
 .vs/
+.vscode/
+
+# JetBrains
+.idea/
+
+# Build output
 Debug/
 Release/
 build/
+External GCC - Debug/
+
+# Compiled files
 *.o
 *.elf
 *.hex
-
-Debug/
-*.o
-*.elf
 *.map
 *.src
 *.d
+*.bin
+*.srec
+*.lst
+
+# Temporary files
+*.log
+*.tmp
