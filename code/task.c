@@ -7,6 +7,7 @@
 
 
 int task2 = 0;
+int task3 = 0;
 
 int buzzer_count =0;
 int buzzer_flag = 0;
@@ -18,6 +19,7 @@ float set_turn_out = 0;
 float set_turn_true_out = 0;
 
 float new_gyro = 0;
+float now_distance = 0;
 
 Data_Param param;
 float gyro_out_max = 45;
@@ -102,19 +104,21 @@ void Task_doing()  //定时器中断函数，任务在其中执行，2ms
     {
         if(param.speed_flag)
             {
-                motor_pid.set_speed = -250;
+                motor_pid.set_speed = -400;
             }
             servo_pid_change(&servo3_param);
             task3_servo();
 
-            /*if(turn1_success == 0)
+            if(turn1_success == 0)
             {
                 detect_line_first_turn1();
-            }   else if(turn1_success == 1)
+                turn_angle = 0 + 0.1 * third_grass_getkangle(grass_latitude,grass_longitude);
+            }else if(turn1_success == 1)
             {
                 detect_line_first_turn2_3(last_distance);
+            }
+            task_3_route_set();
 
-            }*/
     }
 }
 
@@ -226,10 +230,13 @@ void detect_line_first_turn2_3(float lastdistence){
             turn_angle = 180 + kk*(third_subject_getkangle(s_latitude,s_longitude) - 180);
         }else if(third_subject_getkangle(s_latitude,s_longitude) < 90)
         {
-            turn_angle = 180 + kk*(third_subject_getkangle(s_latitude,s_longitude) - 180);
+            turn_angle = 180 + kk*(third_subject_getkangle(s_latitude,s_longitude) + 180);
         }
-
-        turn1_success=2;
+    }
+    if((eulerangle.yaw > 170 || eulerangle.yaw < -170) && (third_subject_getkangle(s_latitude,s_longitude) > 170 ||third_subject_getkangle(s_latitude,s_longitude) < -170))
+    {
+        turn_angle = 180;
+        turn1_success = 2;
     }
 }
 
@@ -273,6 +280,40 @@ void task_2_route_set(void)
         task2 ++;
     }
 
+}
+
+void task_3_route_set(void)
+{
+    if(task3 == 0 && turn1_success == 2)
+    {
+        turn_angle = 180;
+        now_distance = init_distance;
+        task3 ++;
+    }
+    if(task3 == 1 && init_distance - now_distance > 3)
+    {
+        turn_angle = -150;
+        now_distance = init_distance;
+        task3 ++;
+    }
+    if(task3 == 2 && init_distance - now_distance > 2)
+    {
+        turn_angle = 150;
+        now_distance = init_distance;
+        task3 ++;
+    }
+    if(task3 == 3 && init_distance - now_distance > 2)
+    {
+        turn_angle = -150;
+        now_distance = init_distance;
+        task3 ++;
+    }
+    if(task3 == 4 && init_distance - now_distance > 2)
+    {
+        turn_angle = -150;
+        now_distance = init_distance;
+        task3 ++;
+    }
 }
 
 void task1_servo(void)
@@ -499,16 +540,6 @@ void task3_servo(void)
            {
                param.servo_turn_count = 0;
 
-               /*//偏航角转换
-               if(eulerangle.yaw > 90 && eulerangle.yaw <= 180)
-               {
-                   change_yaw = eulerangle.yaw - 180;
-               }else if(eulerangle.yaw < -90 && eulerangle.yaw >= -180)
-               {
-                   change_yaw = 180 + eulerangle.yaw;
-               }else{
-                   change_yaw = eulerangle.yaw;
-               }*/
 
                if(change_flag == 0)
                {
