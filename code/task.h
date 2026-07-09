@@ -1,7 +1,7 @@
 /*
  * task.h
  *
- *  Created on: 2026Äê3ÔÂ13ÈÕ
+ *  Created on: 2026ï¿½ï¿½3ï¿½ï¿½13ï¿½ï¿½
  *      Author: ganbencheng
  */
 
@@ -46,6 +46,9 @@ extern float gyro_rate;
 
 extern float new_gyro;
 extern float change_yaw;
+
+extern double grass_latitude; //the latitude of the grass
+extern double grass_longitude; //the longitude of the grass
 
 void Task_doing(void);
 void Param_init(void);

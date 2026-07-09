@@ -199,4 +199,14 @@ double third_subject_getkangle(double s_latitude,double s_longitude)
     }
 }
 
+double third_grass_getkangle(double grass_latitude,double grass_longitude)
+{
+    double fang=get_two_points_azimuth(gnss.latitude,gnss.longitude,grass_latitude,grass_longitude);
+    if(third_subject_angle-fang<0){
+        return third_subject_angle-fang;
+    }else{
+        return fang-third_subject_angle;
+    }
+}
+
 // join into the programming.

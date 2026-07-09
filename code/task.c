@@ -40,16 +40,19 @@ float init_distance=0;
 float WHEEL_CIRCUMFERENCE_M=0.24; //circle length of the wheel
 float change_yaw = 0.0f;
 
-double s_latitude = 0;    //²É¼¯µÄµÚÒ»¸ö×¶Í°µÄ×ø±ê
+double s_latitude = 0;    //ï¿½É¼ï¿½ï¿½Äµï¿½Ò»ï¿½ï¿½×¶Í°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 double s_longitude = 0;
 
-void Task_doing()  //¶¨Ê±Æ÷ÖÐ¶Ïº¯Êý£¬ÈÎÎñÔÚÆäÖÐÖ´ÐÐ£¬2ms
+double grass_latitude = 0; //the latitude of the grass
+double grass_longitude = 0; //the longitude of the grass
+
+void Task_doing()  //ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Ð¶Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð£ï¿½2ms
 {
     //gnss_main_round(0,0);
     miniseconds += 2;
     time += 0.002;
     distance_calculate(miniseconds,0);
-    // µç»ú¿ØÖÆÄ£¿é
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
     if(param.speed_flag)
     {
         set_newspeed = (int16)motor_pid_control(&motor_pid,(float)encoder_data);
@@ -64,7 +67,7 @@ void Task_doing()  //¶¨Ê±Æ÷ÖÐ¶Ïº¯Êý£¬ÈÎÎñÔÚÆäÖÐÖ´ÐÐ£¬2ms
         driver_speed_set(0);
     }
 
-    //¿ÆÄ¿Ò»¿ØÖÆ
+    //ï¿½ï¿½Ä¿Ò»ï¿½ï¿½ï¿½ï¿½
     if(param.task == task_one)
     {
 
@@ -84,7 +87,7 @@ void Task_doing()  //¶¨Ê±Æ÷ÖÐ¶Ïº¯Êý£¬ÈÎÎñÔÚÆäÖÐÖ´ÐÐ£¬2ms
     }
   }
 
-    //¿ÆÄ¿¶þ¿ØÖÆ
+    //ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     if(param.task == task_two)
     {
         task2_servo();
@@ -99,7 +102,7 @@ void Task_doing()  //¶¨Ê±Æ÷ÖÐ¶Ïº¯Êý£¬ÈÎÎñÔÚÆäÖÐÖ´ÐÐ£¬2ms
         BUZZER_DO();
     }
 
-    //¿ÆÄ¿Èý¿ØÖÆ
+    //ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     if(param.task == task_three)
     {
         if(param.speed_flag)
@@ -167,16 +170,16 @@ float distance_calculate(uint32_t miniseconds, uint8_t reset)
 
     float delta_t = delta_ms / 1000.0f;   // ms ×ª s
 
-    // ÌÝÐÎ»ý·Ö
+    // ï¿½ï¿½ï¿½Î»ï¿½ï¿½ï¿½
     float average_speed = (last_speed + current_speed) / 2.0f;
 
-    // ×ª/Ãë ¡Á Ãë ¡Á ÂÖ×ÓÖÜ³¤ = ¾àÀë
+    // ×ª/ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ü³ï¿½ = ï¿½ï¿½ï¿½ï¿½
     init_distance += average_speed * delta_t * WHEEL_CIRCUMFERENCE_M;
 
     last_time = miniseconds;
     last_speed = current_speed;
 
-    return init_distance;   // µ¥Î»£ºm
+    return init_distance;   // ï¿½ï¿½Î»ï¿½ï¿½m
 }
 
 
@@ -318,21 +321,21 @@ void task_3_route_set(void)
 
 void task1_servo(void)
 {
-    //¶æ»úÆ½ºâ¿ØÖÆ
+    //ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½
         if(param.servo_flag )
         {
             param.servo_angle_count++;
             param.servo_turn_count++;
             param.servo_turn_add_count++;
-            //½ÇËÙ¶È»·¿ØÖÆ
+            //ï¿½ï¿½ï¿½Ù¶È»ï¿½ï¿½ï¿½ï¿½ï¿½
             if(imu_data.gyro_y > 230)
             {imu_data.gyro_y = 230;}
             else if(imu_data.gyro_y < -230)
             {
                 imu_data.gyro_y = -230;
             }
-           new_gyro = servo_gyro_filter(imu_data.gyro_y,&new_gyro,0.08);// µÍÍ¨ÂË²¨
-           set_gyro_out = gyro_circle_conetrol(&servo_param,new_gyro);     //2msÒ»´Î
+           new_gyro = servo_gyro_filter(imu_data.gyro_y,&new_gyro,0.08);// ï¿½ï¿½Í¨ï¿½Ë²ï¿½
+           set_gyro_out = gyro_circle_conetrol(&servo_param,new_gyro);     //2msÒ»ï¿½ï¿½
            if(set_gyro_out>gyro_out_max)
            {
                set_gyro_out = gyro_out_max;
@@ -343,15 +346,15 @@ void task1_servo(void)
 
            Servo_control((double)set_gyro_out);
 
-           //½Ç¶È»·¿ØÖÆ
-           if(param.servo_angle_count > 2)  //4ms¿ØÖÆÒ»´Î
+           //ï¿½Ç¶È»ï¿½ï¿½ï¿½ï¿½ï¿½
+           if(param.servo_angle_count > 2)  //4msï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
            {
                param.servo_angle_count = 0;
                set_angle_out = angle_circle_conetrol(&servo_param,eulerangle.roll);
                servo_param.set_gyro = set_angle_out;
            }
 
-           //Î»ÖÃ»·¿ØÖÆ
+           //Î»ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 
            if(param.servo_turn_add_count > 4)
            {
@@ -377,11 +380,11 @@ void task1_servo(void)
 
            }
 
-           if(param.servo_turn_count > 15) //30msÖ´ÐÐÒ»´Î
+           if(param.servo_turn_count > 15) //30msÖ´ï¿½ï¿½Ò»ï¿½ï¿½
            {
                param.servo_turn_count = 0;
 
-               /*//Æ«º½½Ç×ª»»
+               /*//Æ«ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
                if(eulerangle.yaw > 90 && eulerangle.yaw <= 180)
                {
                    change_yaw = eulerangle.yaw - 180;
@@ -408,15 +411,15 @@ void task1_servo(void)
 
 void task2_servo(void)
 {
-    //¶æ»úÆ½ºâ¿ØÖÆ
+    //ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½
         if(param.servo_flag )
         {
             param.servo_angle_count++;
             param.servo_turn_count++;
             param.servo_turn_add_count++;
 
-           //½Ç¶È»·¿ØÖÆ
-           if(param.servo_angle_count > 2)  //4ms¿ØÖÆÒ»´Î
+           //ï¿½Ç¶È»ï¿½ï¿½ï¿½ï¿½ï¿½
+           if(param.servo_angle_count > 2)  //4msï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
            {
                param.servo_angle_count = 0;
                set_angle_out = angle_circle_conetrol(&servo2_param,eulerangle.roll);
@@ -431,7 +434,7 @@ void task2_servo(void)
                Servo_control((double)set_angle_out);
            }
 
-           //Î»ÖÃ»·¿ØÖÆ
+           //Î»ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 
            if(param.servo_turn_add_count > 5)
            {
@@ -457,7 +460,7 @@ void task2_servo(void)
 
            }
 
-           if(param.servo_turn_count > 20) //80msÖ´ÐÐÒ»´Î
+           if(param.servo_turn_count > 20) //80msÖ´ï¿½ï¿½Ò»ï¿½ï¿½
            {
                param.servo_turn_count = 0;
               if(param.task2_turn_flag == 0)
@@ -477,21 +480,21 @@ void task2_servo(void)
 
 void task3_servo(void)
 {
-    //¶æ»úÆ½ºâ¿ØÖÆ
+    //ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½
         if(param.servo_flag )
         {
             param.servo_angle_count++;
             param.servo_turn_count++;
             param.servo_turn_add_count++;
-            //½ÇËÙ¶È»·¿ØÖÆ
+            //ï¿½ï¿½ï¿½Ù¶È»ï¿½ï¿½ï¿½ï¿½ï¿½
             if(imu_data.gyro_y > 230)
             {imu_data.gyro_y = 230;}
             else if(imu_data.gyro_y < -230)
             {
                 imu_data.gyro_y = -230;
             }
-           new_gyro = servo_gyro_filter(imu_data.gyro_y,&new_gyro,0.08);// µÍÍ¨ÂË²¨
-           set_gyro_out = gyro_circle_conetrol(&servo3_param,new_gyro);     //2msÒ»´Î
+           new_gyro = servo_gyro_filter(imu_data.gyro_y,&new_gyro,0.08);// ï¿½ï¿½Í¨ï¿½Ë²ï¿½
+           set_gyro_out = gyro_circle_conetrol(&servo3_param,new_gyro);     //2msÒ»ï¿½ï¿½
            if(set_gyro_out>gyro_out_max)
            {
                set_gyro_out = gyro_out_max;
@@ -502,15 +505,15 @@ void task3_servo(void)
 
            Servo_control((double)set_gyro_out);
 
-           //½Ç¶È»·¿ØÖÆ
-           if(param.servo_angle_count > 2)  //4ms¿ØÖÆÒ»´Î
+           //ï¿½Ç¶È»ï¿½ï¿½ï¿½ï¿½ï¿½
+           if(param.servo_angle_count > 2)  //4msï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
            {
                param.servo_angle_count = 0;
                set_angle_out = angle_circle_conetrol(&servo3_param,eulerangle.roll);
                servo3_param.set_gyro = set_angle_out;
            }
 
-           //Î»ÖÃ»·¿ØÖÆ
+           //Î»ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½
 
            if(param.servo_turn_add_count > 4)
            {
@@ -536,7 +539,7 @@ void task3_servo(void)
 
            }
 
-           if(param.servo_turn_count > 15) //30msÖ´ÐÐÒ»´Î
+           if(param.servo_turn_count > 15) //30msÖ´ï¿½ï¿½Ò»ï¿½ï¿½
            {
                param.servo_turn_count = 0;
 
