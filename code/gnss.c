@@ -199,4 +199,4 @@ double third_subject_getkangle(double s_latitude,double s_longitude)
     }
 }
 
-// join into the programming
+// join into the programming.
