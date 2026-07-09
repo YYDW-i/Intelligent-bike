@@ -5,3 +5,10 @@ build/
 *.o
 *.elf
 *.hex
+
+Debug/
+*.o
+*.elf
+*.map
+*.src
+*.d
