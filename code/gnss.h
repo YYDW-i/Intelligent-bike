@@ -23,5 +23,6 @@ extern void surround_right(double object_latitude,double object_longitude);
 extern void surround_left_second(double object_latitude,double object_longitude);
 extern double third_subject_getkangle(double s_latitude,double s_longitude);
 extern double third_grass_getkangle(double grass_latitude,double grass_longitude);
+void low_pass_gnss(void);
 
 #endif /* CODE_GNSS_H_ */

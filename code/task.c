@@ -144,7 +144,7 @@ void Param_init(void)
     param.servo_turn_count = 0;
     param.servo_turn_add_count = 0;
     param.task_flag = 0;
-    param.task = 3;
+    param.task = 2;
     param.task2_turn_flag = 0;
 }
 
@@ -254,40 +254,40 @@ void detect_line_first_turn2_3(float lastdistence){
 void task_2_route_set(void)
 {
 
-    if(task2 == 0 && param.speed_flag)
+    if(task2 == 0)
     {
-        turn_angle = 0;
+        turn_angle = 53;
         task2 ++;
     }
     if(task2 == 1 && init_distance > 0.2)
     {
         buzzer_flag = 1;
-        turn_angle = 30;
+        turn_angle = 53;
         task2 ++;
     }
-    if(task2 == 2 && init_distance > (0.2 + 1.80))
+    if(task2 == 2 && init_distance > 1.9)
     {
         buzzer_flag = 1;
-        turn_angle = -60;
+        turn_angle = -80;
         task2 ++;
     }
-    if(task2 == 3 && init_distance > (0.2 + 1.80 + 2.20))
+    if(task2 == 3 && init_distance > (1.90 + 2.25))
     {
         buzzer_flag = 1;
         param.task2_turn_flag = 1;
         task2 ++;
     }
-    if(task2 == 4 && init_distance > (0.2 + 1.80 + 2.20 + 3))
+    if(task2 == 4 && init_distance > (1.90 + 2.25 + 3.6))
     {
         buzzer_flag = 1;
         param.task2_turn_flag = 0;
-        turn_angle = -120;
+        turn_angle = -110;
         task2 ++;
     }
-    if(task2 == 5 && init_distance > (0.2 + 1.80 + 2.20 + 3 + 3))
+    if(task2 == 5 && init_distance > (1.90 + 2.25 + 3.6 + 2.7))
     {
         buzzer_flag = 1;
-        turn_angle = 135;
+        turn_angle = 110;
         task2 ++;
     }
 
@@ -476,7 +476,7 @@ void task2_servo(void)
               set_turn_out = turn_circle_control(&servo2_param,eulerangle.yaw);
               }else if(param.task2_turn_flag == 1)
               {
-                  set_turn_out = 3.5;//0.5;
+                  set_turn_out = 3.1;//0.5;
               }
 
            }
@@ -596,7 +596,7 @@ float speed_2(void)
         angle = - eulerangle.roll;
     }
 
-    speed = -150 - 3 * angle;
+    speed = -150 - 1.5 * angle;
     return speed;
 }
 
