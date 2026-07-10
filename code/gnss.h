@@ -11,6 +11,9 @@
 #include "zf_common_typedef.h"
 
 extern double third_subject_angle;
+extern double pre_latitude ;
+extern double pre_longitude ;
+extern double aa ;
 
 extern double change_gnss_to_duo( double desired_heading);
 extern double turn_to(double object_latitude,double object_longitude);

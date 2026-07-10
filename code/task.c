@@ -112,7 +112,7 @@ void Task_doing()  //锟斤拷时锟斤拷锟叫断猴拷锟斤拷锟斤拷锟�
             }
             servo_pid_change(&servo3_param);
             task3_servo();
-
+            low_pass_gnss();      //gps filter
             if(turn1_success == 0)
             {
                 detect_line_first_turn1();

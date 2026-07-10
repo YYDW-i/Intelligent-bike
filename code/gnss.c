@@ -3,6 +3,9 @@
 
 double dir=0;  //take as the duo jiao
 double third_subject_angle = 0;   //小车到终点的方向和正北方向的顺时针夹角
+double pre_latitude = 0;
+double pre_longitude = 0;
+double aa = 0.4;
 
 double change_gnss_to_duo(double desired_heading){
     // 1. 閿熸枻鎷烽敓濮愯埅閿熸枻鎷风澘顒婃嫹閿熸彮浼欐嫹閿熸枻鎷烽敓锟� [-180,180]
@@ -210,3 +213,15 @@ double third_grass_getkangle(double grass_latitude,double grass_longitude)
 }
 
 // join into the programming.
+
+void low_pass_gnss(void)
+{
+    gnss.latitude = (1 - aa) * pre_latitude + aa * gnss.latitude;
+    gnss.longitude = (1 - aa) * pre_longitude + aa * gnss.longitude;
+
+}
+
+
+
+
+
