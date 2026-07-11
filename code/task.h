@@ -63,5 +63,6 @@ void task2_servo(void);
 void task3_servo(void);
 void BUZZER_DO(void);
 float speed_2(void);
+void speed_add(float speed);
 
 #endif /* CODE_TASK_H_ */

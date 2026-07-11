@@ -30,12 +30,16 @@ float first_begin_latitude=-1;
 float first_begin_longitude=-1;
 int turn1_success=0;
 float first_turn_circle = 6.5;//3;//2.462; //the half length of the circle meters
-float turn_angle=0.0;
+float turn_angle= 0.0;
 float last_distance = 0;
 int change_flag = 0;
 
 int gnssflag = 0;
 uint32 miniseconds=0;
+
+int flag_straight = 0;
+int flag_add_speed = 0;
+
 float time = 0;
 float init_distance=0;
 float WHEEL_CIRCUMFERENCE_M=0.24; //circle length of the wheel
@@ -106,13 +110,28 @@ void Task_doing()  //锟斤拷时锟斤拷锟叫断猴拷锟斤拷锟斤拷锟�
     //锟斤拷目锟斤拷锟斤拷锟斤拷
     if(param.task == task_three)
     {
+        /*if(flag_straight == 0)
+            {
+                turn_angle = eulerangle.yaw;
+                flag_straight ++;
+            }*/
+        if(eulerangle.yaw < 0.3 && eulerangle.yaw > -0. && set_turn_out < 0.4 && set_turn_out > -0.4)
+        {
+            buzzer_flag = 1;
+        }
+        BUZZER_DO();
         if(param.speed_flag)
             {
-                motor_pid.set_speed = -400;
+            motor_pid.set_speed = -400;
             }
             servo_pid_change(&servo3_param);
             task3_servo();
             low_pass_gnss();      //gps filter
+            if(flag_straight == 0)
+            {
+                turn_angle = eulerangle.yaw;
+                flag_straight ++;
+            }
             if(turn1_success == 0)
             {
                 detect_line_first_turn1();
@@ -144,7 +163,7 @@ void Param_init(void)
     param.servo_turn_count = 0;
     param.servo_turn_add_count = 0;
     param.task_flag = 0;
-    param.task = 2;
+    param.task = 3;
     param.task2_turn_flag = 0;
 }
 
@@ -303,25 +322,25 @@ void task_3_route_set(void)
     }
     if(task3 == 1 && init_distance - now_distance > 1.7)
     {
+        turn_angle = 150;
+        now_distance = init_distance;
+        task3 ++;
+    }
+    if(task3 == 2 && init_distance - now_distance > 3)
+    {
         turn_angle = -160;
         now_distance = init_distance;
         task3 ++;
     }
-    if(task3 == 2 && init_distance - now_distance > 2)
+    if(task3 == 3 && init_distance - now_distance > 3)
     {
         turn_angle = 160;
         now_distance = init_distance;
         task3 ++;
     }
-    if(task3 == 3 && init_distance - now_distance > 2)
-    {
-        turn_angle = -160;
-        now_distance = init_distance;
-        task3 ++;
-    }
     if(task3 == 4 && init_distance - now_distance > 2)
     {
-        turn_angle = -160;
+        turn_angle = 180;
         now_distance = init_distance;
         task3 ++;
     }
@@ -600,7 +619,18 @@ float speed_2(void)
     return speed;
 }
 
-
+void speed_add(float speed)    //acclerated start
+{
+    if(flag_add_speed == 0)
+    {
+        motor_pid.set_speed = speed;
+        flag_add_speed = 1;
+    }
+    if(motor_pid.set_speed < -400)
+    {
+        motor_pid.set_speed += 20;
+    }
+}
 
 
 
