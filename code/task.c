@@ -45,11 +45,11 @@ float init_distance=0;
 float WHEEL_CIRCUMFERENCE_M=0.24; //circle length of the wheel
 float change_yaw = 0.0f;
 
-double s_latitude = 0;    //锟缴硷拷锟侥碉拷一锟斤拷锥桶锟斤拷锟斤拷锟斤拷
-double s_longitude = 0;
+double s_latitude = 39.726943;    //锟缴硷拷锟侥碉拷一锟斤拷锥桶锟斤拷锟斤拷锟斤拷
+double s_longitude = 116.163169;
 
-double grass_latitude = 39.72683; //the latitude of the grass
-double grass_longitude = 116.163574; //the longitude of the grass
+double grass_latitude = 39.726963; //the latitude of the grass
+double grass_longitude = 116.163101; //the longitude of the grass
 
 void Task_doing()  //锟斤拷时锟斤拷锟叫断猴拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷执锟叫ｏ拷2ms
 {
@@ -255,16 +255,6 @@ void detect_line_first_turn2_3(float lastdistence){
     {
         double kk = 0;
         change_flag = 0;
-        if(third_subject_getkangle(s_latitude,s_longitude) > 90)
-        {
-            turn_angle = 180 + kk*(third_subject_getkangle(s_latitude,s_longitude) - 180);
-        }else if(third_subject_getkangle(s_latitude,s_longitude) < 90)
-        {
-            turn_angle = 180 + kk*(third_subject_getkangle(s_latitude,s_longitude) + 180);
-        }
-    }
-    if((eulerangle.yaw > 170 || eulerangle.yaw < -170))
-    {
         turn_angle = 180;
         turn1_success = 2;
     }
@@ -320,25 +310,25 @@ void task_3_route_set(void)
         now_distance = init_distance;
         task3 ++;
     }
-    if(task3 == 1 && init_distance - now_distance > 1.7)
-    {
-        turn_angle = 150;
-        now_distance = init_distance;
-        task3 ++;
-    }
-    if(task3 == 2 && init_distance - now_distance > 3)
-    {
-        turn_angle = -160;
-        now_distance = init_distance;
-        task3 ++;
-    }
-    if(task3 == 3 && init_distance - now_distance > 3)
+    if(task3 == 1 && init_distance - now_distance > 2.4)
     {
         turn_angle = 160;
         now_distance = init_distance;
         task3 ++;
     }
-    if(task3 == 4 && init_distance - now_distance > 2)
+    if(task3 == 2 && init_distance - now_distance > 2.0)
+    {
+        turn_angle = -160;
+        now_distance = init_distance;
+        task3 ++;
+    }
+    if(task3 == 3 && init_distance - now_distance > 3.4)
+    {
+        turn_angle = 160;
+        now_distance = init_distance;
+        task3 ++;
+    }
+    if(task3 == 4 && init_distance - now_distance > 3.5)
     {
         turn_angle = 180;
         now_distance = init_distance;
@@ -576,7 +566,7 @@ void task3_servo(void)
                    set_turn_out = turn_circle_control(&servo3_param,eulerangle.yaw);
                }else if(change_flag == 1)
                {
-                   set_turn_out = 6.5;//3.5;
+                   set_turn_out = 4.3;//3.5;
                }
            }
 

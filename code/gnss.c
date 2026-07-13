@@ -2,7 +2,7 @@
 #define AVOID_ANGLE  15
 
 double dir=0;  //take as the duo jiao
-double third_subject_angle = 0;   //小车到终点的方向和正北方向的顺时针夹角
+double third_subject_angle = 180;   //小车到终点的方向和正北方向的顺时针夹角
 double pre_latitude = 0;
 double pre_longitude = 0;
 double aa = 0.4;
@@ -216,8 +216,8 @@ double third_grass_getkangle(double grass_latitude,double grass_longitude)
 
 void low_pass_gnss(void)
 {
-    gnss.latitude = (1 - aa) * pre_latitude + aa * gnss.latitude;
-    gnss.longitude = (1 - aa) * pre_longitude + aa * gnss.longitude;
+    //gnss.latitude = (1 - aa) * pre_latitude + aa * gnss.latitude;
+    //gnss.longitude = (1 - aa) * pre_longitude + aa * gnss.longitude;
 
 }
 

@@ -13,7 +13,7 @@
        <EditorPersist>
         <__.0>
          <BookmarkList></BookmarkList>
-         <CaretPos>5299</CaretPos>
+         <CaretPos>5364</CaretPos>
          <Encoding>6</Encoding>
          <FileName>D:\Infineon\library\TC264_Library-master\Seekfree_TC264_Opensource_Library\Seekfree_TC264_general_Opensource_Library\Seekfree_TC264_Opensource_Library\user\cpu0_main.c</FileName>
          <FileType>1</FileType>
@@ -45,15 +45,23 @@
         </__.12>
         <__.13>
          <BookmarkList></BookmarkList>
-         <CaretPos>4061</CaretPos>
+         <CaretPos>3580</CaretPos>
          <Encoding>6</Encoding>
          <FileName>D:\Infineon\library\TC264_Library-master\Seekfree_TC264_Opensource_Library\Seekfree_TC264_general_Opensource_Library\Seekfree_TC264_Opensource_Library\code\Attitude.c</FileName>
          <FileType>1</FileType>
          <ScrollPos>138</ScrollPos>
         </__.13>
+        <__.14>
+         <BookmarkList></BookmarkList>
+         <CaretPos>37729</CaretPos>
+         <Encoding>6</Encoding>
+         <FileName>D:\Infineon\library\TC264_Library-master\Seekfree_TC264_Opensource_Library\Seekfree_TC264_general_Opensource_Library\Seekfree_TC264_Opensource_Library\libraries\infineon_libraries\iLLD\TC26B\Tricore\Qspi\Std\IfxQspi.h</FileName>
+         <FileType>1</FileType>
+         <ScrollPos>876</ScrollPos>
+        </__.14>
         <__.1>
          <BookmarkList></BookmarkList>
-         <CaretPos>6702</CaretPos>
+         <CaretPos>6930</CaretPos>
          <Encoding>6</Encoding>
          <FileName>D:\Infineon\library\TC264_Library-master\Seekfree_TC264_Opensource_Library\Seekfree_TC264_general_Opensource_Library\Seekfree_TC264_Opensource_Library\user\isr.c</FileName>
          <FileType>1</FileType>
@@ -205,13 +213,17 @@
         <ViewType>Document</ViewType>
        </__.16>
        <__.17>
-        <ViewId>1</ViewId>
-        <ViewType>Output_Progress</ViewType>
+        <ViewId>19</ViewId>
+        <ViewType>Document</ViewType>
        </__.17>
        <__.18>
+        <ViewId>1</ViewId>
+        <ViewType>Output_Progress</ViewType>
+       </__.18>
+       <__.19>
         <ViewId>0</ViewId>
         <ViewType>Symbols</ViewType>
-       </__.18>
+       </__.19>
        <__.1>
         <ViewId>2</ViewId>
         <ViewType>Locals</ViewType>
@@ -298,6 +310,11 @@
         <ViewId>18</ViewId>
         <ViewType>Document</ViewType>
        </__.13>
+       <__.14>
+        <RelativePath>..\..\..\libraries\infineon_libraries\iLLD\TC26B\Tricore\Qspi\Std\IfxQspi.h</RelativePath>
+        <ViewId>19</ViewId>
+        <ViewType>Document</ViewType>
+       </__.14>
        <__.1>
         <RelativePath>..\..\..\code\gnss.c</RelativePath>
         <ViewId>6</ViewId>
@@ -573,6 +590,16 @@
                  <TopTabViewId>-1</TopTabViewId>
                  <ViewId>18</ViewId>
                 </__.13>
+                <__.14>
+                 <DockType>Document</DockType>
+                 <Extent>1</Extent>
+                 <IsDocumentPane>false</IsDocumentPane>
+                 <IsPinned>false</IsPinned>
+                 <IsTabbed>false</IsTabbed>
+                 <Orientation>None</Orientation>
+                 <TopTabViewId>-1</TopTabViewId>
+                 <ViewId>19</ViewId>
+                </__.14>
                 <__.1>
                  <DockType>Document</DockType>
                  <Extent>1</Extent>

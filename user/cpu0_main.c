@@ -84,20 +84,9 @@ uint32 data_length = 0;
     pit_ms_init(CCU60_CH1,2);            //任务定时器初始化（2ms）
     pit_ms_init(CCU61_CH0,10);          //编码器采集数据(10ms)
 
-
-    uint32 motor_key_time = 0;
-
-
-    /*uint16_t data[128];
-    int16_t data_index = 0;
-        for( ; 64 > data_index; data_index ++)
-            data[data_index] = data_index;
-        for(data_index = 64; 128 > data_index; data_index ++)
-            data[data_index] = 128 - data_index;*/
-
-        ips200_set_dir(IPS200_PORTAIT);
-        ips200_set_color(RGB565_RED, RGB565_BLACK);
-        ips200_init(IPS200_TYPE);
+    ips200_set_dir(IPS200_PORTAIT);
+    ips200_set_color(RGB565_RED, RGB565_BLACK);
+    ips200_init(IPS200_TYPE);
 
 //--------------------------------------------------------------------------------------------
         // 设置逐飞助手使用DEBUG串口进行收发
@@ -211,7 +200,8 @@ uint32 data_length = 0;
         ips200_show_float(0 ,16*2,set_turn_true_out,4,6);
         ips200_show_float(0 ,16*3,set_turn_out,4,6);
 
-        ips200_show_int(0,16*4,(int32)encoder_data,6);
+        ips200_show_string(0,16*4,"ENCODE_SPEED:");
+        ips200_show_int(110,16*4,(int32)encoder_data,6);
 
         //task_output
         ips200_show_string(75,0,"TASK:");
@@ -230,12 +220,11 @@ uint32 data_length = 0;
         }
 
         //gnss_out
-        //ips200_show_string(0,16*10,"latitude:");
-        ips200_show_float(75,16*10,third_grass_getkangle(grass_latitude,grass_longitude),4,6);
+        ips200_show_string(0,16*10,"LATITUDE:");
+        ips200_show_float(75,16*10,gnss.latitude,4,6);
 
-        //ips200_show_string(0,16*11,"longitude");
-        ips200_show_float(75,16*11,get_two_points_azimuth(gnss.latitude,gnss.longitude,grass_latitude,grass_longitude),4,6);
-
+        ips200_show_string(0,16*11,"LONGITUDE");
+        ips200_show_float(75,16*11,gnss.longitude,4,6);
 
        /* data_length = wifi_spi_read_buffer(wifi_spi_get_data_buffer, sizeof(wifi_spi_get_data_buffer));
                 if(data_length)                                                         // 如果接收到数据 则进行数据类型判断
