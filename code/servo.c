@@ -107,7 +107,7 @@ void servo_pid_init(void)         //初始化舵机pid参数
     servo_param.set_gyro = 0;
 
     servo_param.turn_kp = 0.32;//0.32;//0.33;//0.45;//0.3;//1;//-2;
-    servo_param.turn_ki = 0;
+    servo_param.turn_ki = 0.001;
     servo_param.turn_kd = 1.0;//2.8;//0.4;
     servo_param.turn_integral = 0;
     servo_param.turn_prev_error = 0;

@@ -85,11 +85,11 @@
         </__.3>
         <__.4>
          <BookmarkList></BookmarkList>
-         <CaretPos>4028</CaretPos>
+         <CaretPos>1145</CaretPos>
          <Encoding>6</Encoding>
          <FileName>D:\Infineon\library\TC264_Library-master\Seekfree_TC264_Opensource_Library\Seekfree_TC264_general_Opensource_Library\Seekfree_TC264_Opensource_Library\code\gnss.c</FileName>
          <FileType>1</FileType>
-         <ScrollPos>71</ScrollPos>
+         <ScrollPos>42</ScrollPos>
         </__.4>
         <__.5>
          <BookmarkList></BookmarkList>
@@ -481,7 +481,7 @@
       <PrimaryDocumentPaneId>5</PrimaryDocumentPaneId>
       <Frames>
        <__.0>
-        <FocusedViewId>5</FocusedViewId>
+        <FocusedViewId>4</FocusedViewId>
         <FrameState>3</FrameState>
         <IsPrimary>true</IsPrimary>
         <Bounds>
@@ -767,6 +767,10 @@
       </FindInFilesDialogData>
      </GlobalData>
      <History>
+      <ComboBox>
+       <ComboBoxes>
+       </ComboBoxes>
+      </ComboBox>
      </History>
      <Options>
       <CallstackWindow>

@@ -25,11 +25,14 @@ Data_Param param;
 float gyro_out_max = 45;
 float gyro_out_min = -45;
 
-float first_line_distence=15.0;// the length is meter
+float first_line_distance_1 = 25.8;//15.0;// the length is meter
+float first_line_distance_3 = 26.6;
+
 float first_begin_latitude=-1;
 float first_begin_longitude=-1;
 int turn1_success=0;
-float first_turn_circle = 6.5;//3;//2.462; //the half length of the circle meters
+float first_turn_circle_3 = 3.5;//3;//2.462; //the half length of the circle meters
+float first_turn_circle_1 = 2;
 float turn_angle= 0.0;
 float last_distance = 0;
 int change_flag = 0;
@@ -215,9 +218,17 @@ void detect_line_first_turn1(void){
     if(first_begin_latitude!=-1&&first_begin_longitude!=-1){
         distence_gnss=get_two_points_distance(gnss.latitude,gnss.longitude,first_begin_latitude,first_begin_longitude);
     }
-    float distence_guandao=init_distance;
-    if(distence_guandao > first_line_distence){
-        if(distence_gnss == -1||distence_gnss>first_line_distence){
+    float distence_guandao = init_distance;
+    float first_line_distance = 0;
+    if(param.task == task_one)
+    {
+        first_line_distance = first_line_distance_1;
+    }else if(param.task == task_three)
+    {
+        first_line_distance = first_line_distance_3;
+    }
+    if(distence_guandao > first_line_distance){
+        if(distence_gnss == -1||distence_gnss>first_line_distance){
             change_flag = 1;
             turn1_success = 1;
             last_distance = init_distance;
@@ -234,7 +245,7 @@ void detect_line_first_turn2(float lastdistence){
         turn_flag_1 = 1;
     }
 
-    if(init_distance-lastdistence > first_turn_circle && turn_flag_1 == 1)
+    if(init_distance-lastdistence > first_turn_circle_1 && turn_flag_1 == 1)
     {
         turn_angle = 180;
         change_flag = 0;
@@ -251,9 +262,9 @@ void detect_line_first_turn2_3(float lastdistence){
         turn_flag_1 = 1;
     }
 
-    if(init_distance-lastdistence > first_turn_circle && turn_flag_1 == 1)
+    if(init_distance-lastdistence > first_turn_circle_3 && turn_flag_1 == 1)
     {
-        double kk = 0;
+        //double kk = 0;
         change_flag = 0;
         turn_angle = 180;
         turn1_success = 2;
@@ -265,35 +276,35 @@ void task_2_route_set(void)
 
     if(task2 == 0)
     {
-        turn_angle = 53;
+        turn_angle = 37;
         task2 ++;
     }
     if(task2 == 1 && init_distance > 0.2)
     {
         buzzer_flag = 1;
-        turn_angle = 53;
+        turn_angle = 37;
         task2 ++;
     }
-    if(task2 == 2 && init_distance > 1.9)
+    if(task2 == 2 && init_distance > 1.8)
     {
         buzzer_flag = 1;
         turn_angle = -80;
         task2 ++;
     }
-    if(task2 == 3 && init_distance > (1.90 + 2.25))
+    if(task2 == 3 && init_distance > (1.80 + 3.35))
     {
         buzzer_flag = 1;
         param.task2_turn_flag = 1;
         task2 ++;
     }
-    if(task2 == 4 && init_distance > (1.90 + 2.25 + 3.6))
+    if(task2 == 4 && init_distance > (1.80 + 3.35 + 3.05))
     {
         buzzer_flag = 1;
         param.task2_turn_flag = 0;
         turn_angle = -110;
         task2 ++;
     }
-    if(task2 == 5 && init_distance > (1.90 + 2.25 + 3.6 + 2.7))
+    if(task2 == 5 && init_distance > (1.80 + 3.35 + 3.05 + 2.45))
     {
         buzzer_flag = 1;
         turn_angle = 110;
@@ -310,25 +321,31 @@ void task_3_route_set(void)
         now_distance = init_distance;
         task3 ++;
     }
-    if(task3 == 1 && init_distance - now_distance > 2.4)
+    if(task3 == 1 && init_distance - now_distance > 3.0)
     {
-        turn_angle = 160;
+        turn_angle = 150;
         now_distance = init_distance;
         task3 ++;
     }
-    if(task3 == 2 && init_distance - now_distance > 2.0)
+    if(task3 == 2 && init_distance - now_distance > 5.2)
     {
-        turn_angle = -160;
+        turn_angle = -150;
         now_distance = init_distance;
         task3 ++;
     }
-    if(task3 == 3 && init_distance - now_distance > 3.4)
+    if(task3 == 3 && init_distance - now_distance > 5.2)
     {
-        turn_angle = 160;
+        turn_angle = 150;
         now_distance = init_distance;
         task3 ++;
     }
-    if(task3 == 4 && init_distance - now_distance > 3.5)
+    if(task3 == 4 && init_distance - now_distance > 5.0)
+    {
+        turn_angle = -145;
+        now_distance = init_distance;
+        task3 ++;
+    }
+    if(task3 == 5 && init_distance - now_distance > 6.2)
     {
         turn_angle = 180;
         now_distance = init_distance;
@@ -417,7 +434,7 @@ void task1_servo(void)
                    set_turn_out = turn_circle_control(&servo_param,eulerangle.yaw);
                }else if(change_flag == 1)
                {
-                   set_turn_out = 6.5;//3.5;
+                   set_turn_out = 6.0;//3.5;
                }
            }
 
@@ -485,7 +502,7 @@ void task2_servo(void)
               set_turn_out = turn_circle_control(&servo2_param,eulerangle.yaw);
               }else if(param.task2_turn_flag == 1)
               {
-                  set_turn_out = 3.1;//0.5;
+                  set_turn_out = 1.8;//2.0;//3.1;//0.5;
               }
 
            }
@@ -566,7 +583,7 @@ void task3_servo(void)
                    set_turn_out = turn_circle_control(&servo3_param,eulerangle.yaw);
                }else if(change_flag == 1)
                {
-                   set_turn_out = 4.3;//3.5;
+                   set_turn_out = -6.4;//-6.0;//-4.3;//4.3;//3.5;
                }
            }
 
