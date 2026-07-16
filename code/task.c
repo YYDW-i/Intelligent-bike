@@ -106,8 +106,8 @@ void Task_doing()  //锟斤拷时锟斤拷锟叫断猴拷锟斤拷锟斤拷锟�
             motor_pid.set_speed = 0;
         }
 
-        task_2_route_set();
-        BUZZER_DO();
+        //task_2_route_set();
+        //BUZZER_DO();
     }
 
     //锟斤拷目锟斤拷锟斤拷锟斤拷
@@ -166,7 +166,7 @@ void Param_init(void)
     param.servo_turn_count = 0;
     param.servo_turn_add_count = 0;
     param.task_flag = 0;
-    param.task = 3;
+    param.task = 2;
     param.task2_turn_flag = 0;
 }
 
@@ -622,7 +622,7 @@ float speed_2(void)
         angle = - eulerangle.roll;
     }
 
-    speed = -150 - 1.5 * angle;
+    speed = -75 - 1.5 * angle;
     return speed;
 }
 

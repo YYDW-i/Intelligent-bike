@@ -12,7 +12,7 @@
 
 #define KI          0.001f
 //加速度观测值修正积分系数
-#define KP          20.0f
+#define KP          400.0f
 //比例系数KP
 
 

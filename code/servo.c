@@ -114,16 +114,16 @@ void servo_pid_init(void)         //初始化舵机pid参数
     servo_param.set_turn = 0;
 
     //任务二参数
-    servo2_param.angle_kp = 7;//2.5;//1.5;
-    servo2_param.angle_ki = 0.02;//0.02;
+    servo2_param.angle_kp = 8;//2.5;//1.5;
+    servo2_param.angle_ki = 0;//0.02;
     servo2_param.angle_kd = 0;
     servo2_param.angle_integral = 0;
     servo2_param.angle_prev_error = 0;
     servo2_param.set_angle = 0;
 
-    servo2_param.turn_kp = 0.07;//0.07;
-    servo2_param.turn_ki = 0.0001;
-    servo2_param.turn_kd = 0.4;//0.2;
+    servo2_param.turn_kp = 0;
+    servo2_param.turn_ki = 0;
+    servo2_param.turn_kd = 0;//0.2;
     servo2_param.turn_integral = 0;
     servo2_param.turn_prev_error = 0;
     servo2_param.set_turn = 0;

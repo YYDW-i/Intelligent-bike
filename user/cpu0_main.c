@@ -75,7 +75,7 @@ uint32 data_length = 0;
     Servo_init();                        //舵机初始化
     servo_pid_init();                    //舵机pid参数初始化
     small_driver_uart_init();            //电机串口传输初始化
-    PID_Init(&motor_pid,5,0.15,2,0);     //电机闭环PID初始化
+    PID_Init(&motor_pid,9,0.10,4,0);     //电机闭环PID初始化
     encoder_dir_init(TIM2_ENCODER,TIM2_ENCODER_CH1_P33_7,TIM2_ENCODER_CH2_P33_6);   //编码器初始化
 
     gnss_init(TAU1201);                  //GPS初始化
